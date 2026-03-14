@@ -6,12 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
-    int number;
+    private static int nextId = 1;
+    private int orderId;
     Table table;
     OrderStatus status;
-    Menu menu;
 
-    List<OrderItem> orderItems = new ArrayList<>();
+    private List<OrderItem> orderItems = new ArrayList<>();
+
+    public Order(Table table) {
+        this.orderId = nextId++;
+        this.table = table;
+        this.status = OrderStatus.PENDING;
+    }
 
     public static class OrderItem {
 
@@ -20,7 +26,7 @@ public class Order {
 
 
 
-    public void addItem() {
+    public void addItem(Menu menuItem, int quantity) {
 
     }
 
@@ -29,7 +35,7 @@ public class Order {
     }
 
     public void serve() {
-
+        this.status = OrderStatus.SERVED;
     }
 
 

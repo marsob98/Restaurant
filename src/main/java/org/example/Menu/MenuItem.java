@@ -22,4 +22,5 @@ public abstract class MenuItem implements Menu {
     public int getPrepTime() {
         return prepTime;
     }
+
 }
