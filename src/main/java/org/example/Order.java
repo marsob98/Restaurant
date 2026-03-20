@@ -16,6 +16,7 @@ public class Order {
         this.orderId = nextId++;
         this.table = table;
         this.status = OrderStatus.PENDING;
+        table.setCurrentOrder(this);
     }
 
     public static class OrderItem {
@@ -72,5 +73,13 @@ public class Order {
 
     public int getOrderId() {
         return orderId;
+    }
+
+    public Table getTable() {
+        return table;
+    }
+
+    public OrderStatus getStatus() {
+        return status;
     }
 }

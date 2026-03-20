@@ -1,10 +1,10 @@
 package org.example;
 
 public class Table {
-    int number;
-    int size;
-    TableStatus status;
-    Order currentOrder;
+    private int number;
+    private int size;
+    private TableStatus status;
+    private Order currentOrder;
 
     public Table(int number, int size) {
         this.number = number;
@@ -44,5 +44,9 @@ public class Table {
 
     public int getSize() {
         return size;
+    }
+
+    public TableStatus getStatus() {
+        return status;
     }
 }

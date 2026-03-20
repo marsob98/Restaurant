@@ -9,17 +9,20 @@ public class Bill {
         this.tip = tip;
     }
 
-    private double calculateBill(Order order, double tip) {
-        return order.calculateTotal() + tip;
-    }
 
     public void takeBill() {
+        System.out.println("Table #" + order.getTable().getNumber());
+        System.out.println("Order #" + order.getOrderId());
+        System.out.println("Your total order: ");
+
         for (Order.OrderItem item : order.getOrderItems()) {
             System.out.printf("%s  x%d - %.2f zł%n",
                     item.getMenuItem().getName(),
                     item.getQuantity(),
                     item.getSubTotal());
         }
+        System.out.println("In total: " + order.calculateTotal() + tip);
+
     }
 
 }

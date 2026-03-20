@@ -1,9 +1,9 @@
 package org.example.Menu;
 
 public abstract class MenuItem implements Menu {
-    String name;
-    double price;
-    int prepTime; // min
+    protected String name;
+    protected double price;
+    protected int prepTime; // min
 
     public MenuItem(String name, double price, int prepTime) {
         this.name = name;
