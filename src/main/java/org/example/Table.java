@@ -22,9 +22,27 @@ public class Table {
 
     public void free() {
         this.status = TableStatus.FREE;
+        currentOrder = null;
     }
 
     public boolean isOccupied() {
         return status == TableStatus.OCCUPIED;
+    }
+
+    public Order getCurrentOrder() {
+        return currentOrder;
+    }
+
+    public void setCurrentOrder(Order currentOrder) {
+        this.currentOrder = currentOrder;
+
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public int getSize() {
+        return size;
     }
 }

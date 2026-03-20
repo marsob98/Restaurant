@@ -1,19 +1,30 @@
 package org.example;
 
+import java.util.LinkedList;
 import java.util.Queue;
 
 public class Kitchen {
-    OrderStatus status;
+    private Queue<Order> orderQueue = new LinkedList<>();
+    private Order currentOrder = null;
 
 
-    public void addOrder() {
+    public void addOrder(Order order) {
+       order.setStatus(OrderStatus.PENDING);
+              orderQueue.add(order);
 
     }
     public void startCooking() {
-        this.status = OrderStatus.IN_PROGRESS;
+        if (currentOrder != null) {
+            System.out.println("Kitchen is busy! Currently preparing order #" + currentOrder.getOrderId());
+            return;
+        }
+
+        currentOrder = orderQueue.poll();
+
+
     }
     public void markAsReady() {
-        this.status = OrderStatus.READY;
+        currentOrder.setStatus(OrderStatus.READY);
     }
 
 }

@@ -1,6 +1,5 @@
 package org.example;
 
-import org.example.Menu.Menu;
 import org.example.Menu.MenuItem;
 
 import java.util.ArrayList;
@@ -28,7 +27,7 @@ public class Order {
             this.quantity = quantity;
         }
 
-        public double subTotal() {
+        public double getSubTotal() {
             return menuItem.getPrice() * quantity;
         }
 
@@ -50,7 +49,12 @@ public class Order {
 
     }
 
-    public void calculateTotal() {
+    public double calculateTotal() {
+        double total = 0;
+        for (OrderItem item : orderItems) {
+            total += item.getSubTotal();
+        }
+        return total;
 
     }
 
@@ -58,5 +62,15 @@ public class Order {
         this.status = OrderStatus.SERVED;
     }
 
+    public void setStatus(OrderStatus status) {
+        this.status = status;
+    }
 
+    public List<OrderItem> getOrderItems() {
+        return orderItems;
+    }
+
+    public int getOrderId() {
+        return orderId;
+    }
 }
